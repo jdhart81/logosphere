@@ -21,6 +21,8 @@ jobs:
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o /tmp/elan-init.sh
           sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.28.0
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.28.0
+          "$HOME/.elan/bin/lean" --version
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - run: npm ci --ignore-scripts
       - run: npm test
