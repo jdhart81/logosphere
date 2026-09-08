@@ -24,11 +24,11 @@ Extract the ZIP into a directory. On Chromium's Extensions page, enable Develope
 A local bundle can preserve the complete committed source and refs without publishing:
 
 ```sh
-git bundle create releases/logosphere-0.1.0.bundle --all
+git bundle create releases/logosphere-0.1.0.bundle --branches --tags HEAD
 git bundle verify releases/logosphere-0.1.0.bundle
 ```
 
-On another machine, copy the bundle and clone it:
+Only project branches, tags and HEAD are included; local editor/tool snapshot refs are excluded. On another machine, copy the bundle and clone it:
 
 ```sh
 git clone logosphere-0.1.0.bundle logosphere
