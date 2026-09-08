@@ -41,7 +41,13 @@ try {
   assert.ok(!captured.url.includes('private='));
   const popup = await context.newPage(); const errors = [];
   const worker = context.serviceWorkers()[0] ?? await context.waitForEvent('serviceworker');
-  const sourceTabId = await worker.evaluate(async url => (await chrome.tabs.query({ url }))[0].id, source.url());
+  const sourceTabId = await worker.evaluate(async url => {
+    // tabs.query URL filters are match patterns, not exact URLs with fragments.
+    const tabs = await chrome.tabs.query({});
+    const sourceTab = tabs.find(tab => tab.url === url);
+    if (sourceTab?.id === undefined) throw new Error('Synthetic source tab is unavailable to the test extension');
+    return sourceTab.id;
+  }, source.url());
   popup.on('pageerror', error => errors.push(error.message));
   await popup.goto(`chrome-extension://${extensionId}/popup.html?sourceTab=${sourceTabId}`);
   assert.equal(await popup.locator('#input').inputValue(), '');

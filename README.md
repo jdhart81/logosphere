@@ -6,7 +6,7 @@ Information → explicit logic graph → verification → canonical reasoning ar
 
 Logosphere makes the declared reasoning inspectable. Lean checks whether a conclusion follows from specified hypotheses. Source authenticity, premise truth, evidence quality and the interpretation of natural language are separate questions. The system can leave them unresolved.
 
-This repository implements **Milestone 0 (foundation)** and **Milestone 1 (bounded developer preview)**. It includes a Chromium extension, a local Lean verifier, a TypeScript SDK, a CLI, MCP stdio, hash-linked graph history and portable JSON artifacts. It does not provide general-purpose argument understanding or continuous browsing observation yet. See the [acceptance matrix](docs/acceptance.md) and [validation record](docs/validation.md), including the remaining native permission approval check.
+This repository implements **Milestone 0 (foundation)** and **Milestone 1 (bounded developer preview)**. It includes a Chromium extension, a local Lean verifier, a TypeScript SDK, a CLI, MCP stdio, hash-linked graph history and portable JSON artifacts. The invariant suite, real browser integration, native permission flow and independent Lean reproduction have passed locally. It does not provide general-purpose argument understanding or continuous browsing observation yet. See the [acceptance matrix](docs/acceptance.md) and [validation record](docs/validation.md) for the exact tested scope.
 
 ## Quick start
 

@@ -1,6 +1,6 @@
 # Specification acceptance matrix
 
-The initial delivery implements the requested Milestone 0 and Milestone 1. Later platform ambitions remain staged in [architecture.md](architecture.md). The authoritative execution record, including incomplete native browser checks, is [validation.md](validation.md).
+The initial delivery implements the requested Milestone 0 and Milestone 1. Later platform ambitions remain staged in [architecture.md](architecture.md). The authoritative execution record, including the completed native consent and verification flow, is [validation.md](validation.md).
 
 ## Ten architectural invariants
 
@@ -14,7 +14,7 @@ The initial delivery implements the requested Milestone 0 and Milestone 1. Later
 | 6. Non-destructive challenge | Append-only exact-target challenges, replacement references and explicit branches | `core.test.ts`, `completion.test.ts` |
 | 7. Reproducibility | Safe regeneration, source/input hashes, runtime commit, invocation and fresh Lean execution | `verifier.test.ts`; `npm run demo`; CLI `check` |
 | 8. Agent/human symmetry | Same schemas and command dispatcher, attribution in events | `runtime.test.ts`, `cli.test.ts` |
-| 9. Privacy by architecture | User-click capture, 12,000-character bound, exclusions, transient inspector, optional paired loopback | `browser.test.ts`, `server.test.ts`; partial native checks |
+| 9. Privacy by architecture | User-click capture, 12,000-character bound, exclusions, transient inspector, optional paired loopback | `browser.test.ts`, `server.test.ts`; native capture, consent and session-forgetting checks |
 | 10. No false certainty | Unsupported prose/mappings remain unresolved; proof failure never means refutation | `core.test.ts`, `verifier.test.ts`, `completion.test.ts` |
 
 Tests live under `tests/`. Provenance identifies a declared creator; it does not authenticate them. A complete trace covers the graph's declared chain; extraction cannot guarantee discovery of every unstated assumption.
@@ -29,10 +29,10 @@ Tests live under `tests/`. Provenance identifies a declared creator; it does not
 | 4. Expose premises and assumptions | Separate node cards, edge links, full backward trace | Packaged UI tests and native inspection pass |
 | 5. Identify formalizable relationships | Reviewed propositional AST plus supported rules | Proposed/unsupported mappings are rejected for proof |
 | 6. Generate Lean | Fixed templates with generated names only | All five rule templates compile in real Lean |
-| 7. Execute verification | Local resource-bounded Lean adapter and authenticated bridge | CLI, SDK and HTTP tests pass; native Allow flow pending |
+| 7. Execute verification | Local resource-bounded Lean adapter and authenticated bridge | CLI, SDK, HTTP, actual browser integration and native Allow flow pass |
 | 8. Associate proof status with graph | Bound immutable verification receipt, session reproduction status | Formal/evidential and import-downgrade checks pass |
-| 9. Inspect complete dependencies | Linked inspector cards, trace, provenance, evidence and challenge history | Packaged UI tests pass; remaining native checklist documented |
-| 10. Export structured reasoning | Canonical JSON artifact; independently regenerate and recheck proofs | CLI export/reproduction passes; current full browser integration pending |
+| 9. Inspect complete dependencies | Linked inspector cards, trace, provenance, evidence and challenge history | Packaged UI tests and native challenge/history inspection pass |
+| 10. Export structured reasoning | Canonical JSON artifact; independently regenerate and recheck proofs | CLI and current browser exports reproduce independently; native export/reimport/reverify passes |
 
 ## Foundation and delivery
 

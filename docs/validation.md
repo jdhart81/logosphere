@@ -1,18 +1,22 @@
 # Validation and release status
 
-This is a local M0/M1 developer preview. No repository has been published, no hosted service deployed, and no browser-store submission made. CI is configured but has not been run on GitHub. The current native browser permission-approval flow remains pending explicit user authorization.
+The local M0/M1 developer preview has passed its invariant suite, real browser integration and native consent/verification flow. No repository has been published, no hosted service deployed, and no browser-store submission made. CI is configured but has not been run on GitHub.
 
 ## Local verification receipt — September 8, 2026
 
 - Strict build and automated suite: **38 passed, 0 failed, 0 skipped**.
 - CLI demo: **PROVEN conditional deduction**; the premise remained UNRESOLVED and the conditional remained ASSUMPTION, with zero evidence assessments.
-- Exported demo receipt: **reproduced in fresh Lean processes**, including an independent CLI `check` invocation.
+- Exported demo, automated-browser and native-browser receipts: **reproduced in fresh Lean processes**, including an independent CLI `check` invocation for the native-browser artifact.
+- Current real Chromium integration: **passed**. Actual Capture button, exact source-tab binding, focus changes, preview/accept, HTTP/Lean verification, export, independent proof reproduction, import downgrade and session reset were exercised. Its test installation pregrants loopback access; native consent was tested separately below.
 - Runtime: Node.js 20.20.2; Lean 4.28.0, commit `7e01a1bf5c70fc6167d49c345d3bf80596e9a79b`, macOS arm64; Playwright 1.63.0 with its isolated Chromium build.
 - Unchanged-manifest native Chromium checks: extension toolbar launches the dedicated inspector; no automatic capture; explicit selection capture returns exactly the three synthetic argument paragraphs (159 characters); preview/accept preserves the unresolved premise and explicit assumption; denying the loopback permission leaves the graph intact.
-- Native **Allow**: automatic approval review rejected granting the isolated extension access to `http://127.0.0.1/*`, because specific authorization for that access scope was required. No permission workaround was used afterward. The temporary browser and services were stopped. Completion requires that authorization and a fresh native test.
-- The final inline challenge editor passes the packaged DOM interaction test; a fresh native exercise of that editor and the full export/reimport flow remains on the checklist.
+- Native **Allow**: **passed after explicit user authorization** for the isolated extension's `http://127.0.0.1/*` access. The unchanged package displayed Chrome's native permission sheet; Allow led to actual local Lean execution and a PROVEN deduction with its premise still UNRESOLVED and its assumption still explicit.
+- Native inline premise challenge: **passed**. Appending a calibration-evidence challenge produced `PROVEN · DISPUTED`, preserved the original proof/history, and survived export and independent recheck.
+- Native Forget/import/reverify: **passed**. Forget cleared the graph and token. Import displayed `UNVERIFIED · DISPUTED` with a reported PROVEN receipt; a wrong token returned 401 without establishing a proof; correct pairing reverified the graph while retaining its challenge. Closing/reopening the inspector returned to an empty session with observation off.
+- Native export head: `sha256:80a4ae6531b928663a0b910b863bdd2bc8e099bc265a937dcefc2218939dbcea`; 3 nodes, 1 edge, 1 receipt, 1 challenge. The source is a 159-character synthetic fixture, not empirical evidence. Local file: `artifacts/native-browser-export.json` (intentionally excluded from Git).
+- Cleanup: the test verifier was stopped and its temporary native profile, including the granted permissions, was removed. The ordinary browser profile was not used.
 
-A prior iteration passed the full isolated Chromium integration with a pregranted test permission and reproduced its exported proof. That result is historical: the current source-tab inspector changes have **not** completed that full integration run. This record does not substitute the prior result for current validation. Demo artifacts have fresh UUIDs/timestamps on each run and therefore different heads.
+The earlier automatic approval rejection was respected until the user explicitly approved the local permission scope; it is now resolved. The current integration run also fixed the harness's exact-URL lookup: Chromium tab filters accept URL patterns, so the test now matches the observed URL against the tab inventory instead of treating its fragment as a filter pattern. Browser binaries were reused from `/private/tmp/logosphere-browser-cache` via `PLAYWRIGHT_BROWSERS_PATH`; a fresh setup can use the standard install command below. Demo artifacts have fresh UUIDs/timestamps on each run and therefore different heads.
 
 ## Automated checks
 
@@ -40,7 +44,7 @@ The test creates a temporary browser profile and extension installation. Its cop
 
 ## Native browser release checklist
 
-Use the unchanged `dist/extension` package in a fresh visible Chromium profile. The following is a release checklist, not a claim that every item has been completed:
+Use the unchanged `dist/extension` package in a fresh visible Chromium profile. The M1 native results above cover the central capture/consent/proof/challenge/export flow. This broader checklist remains useful for future browser releases; it is not a claim of exhaustive page, platform or accessibility coverage:
 
 1. Load the unpacked extension; check manifest/CSP errors. Activate its toolbar action. Verify no text is captured before clicking Capture.
 2. Select the three fixture argument paragraphs. Check exact text, omission of private/editable/hidden sentinels, and stripped query/fragment.
