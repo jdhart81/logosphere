@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Logosphere — reasoning inspector",
+  "version": "0.1.0",
+  "description": "Inspect declared premises, assumptions and conditional Lean proofs. Local, bounded, click-to-capture developer preview.",
+  "permissions": ["activeTab", "scripting"],
+  "optional_host_permissions": ["http://127.0.0.1/*"],
+  "action": { "default_title": "Inspect reasoning with Logosphere" },
+  "background": { "service_worker": "launcher.js" },
+  "incognito": "not_allowed",
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'; connect-src http://127.0.0.1:4318; base-uri 'none'; frame-ancestors 'none'" }
+}

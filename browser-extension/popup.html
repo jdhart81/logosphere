@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Logosphere</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><h1>Logosphere</h1><p>Inspect the reasoning behind a conclusion.</p></header>
+  <p class="boundary">Lean checks deductions from declared premises. It does not establish their empirical truth.</p>
+  <p id="status" role="status" aria-live="polite">Observation is off. Nothing has been captured.</p>
+  <div class="actions"><button id="capture">Capture visible text</button><button id="example">Load synthetic example</button><button id="clear">Forget this session</button></div>
+  <p class="hint">This inspector is tied to the page where you opened Logosphere. Capture is one click, up to 12,000 characters. Selected visible text takes priority. Form fields are excluded. Closing this window forgets its content. No cloud or background capture.</p>
+  <label for="input">Captured or supplied argument</label><textarea id="input" rows="7" maxlength="12000" placeholder="If P, then Q. P. Therefore: Q."></textarea>
+  <p class="hint">This first extractor recognizes explicit “If … then …” plus a matching premise and “Therefore:” conclusion. Other claims remain unresolved. Edits are recorded as supplied text with no page URL.</p>
+  <div class="actions"><button id="preview">Preview candidate graph</button><button id="accept" disabled>Accept mapping and build graph</button></div>
+  <p class="hint">Acceptance records your review of the displayed language-to-symbol mapping. It does not accept the premises as true. Use “Assumption:” to make a condition explicit.</p>
+  <section aria-labelledby="graph-title"><h2 id="graph-title">Declared dependency chain</h2><div id="graph"><p>No graph yet.</p></div></section>
+  <details><summary>Connect a local Lean verifier</summary><p>Start the local service with the origin shown below, then paste its temporary token. This sends the current artifact only to this computer.</p><code id="origin"></code><label for="token">Temporary pairing token</label><input id="token" type="password" autocomplete="off"><button id="verify" disabled>Verify with local Lean</button></details>
+  <div class="actions"><button id="export" disabled>Export reasoning artifact</button><label class="file">Import artifact<input id="import" type="file" accept=".json,application/json"></label></div>
+  <p class="hint">Exports contain captured text and provenance. Imported proof statuses are reported claims until reproduced locally. No signatures or source authentication are provided in this preview.</p>
+  <script src="popup.js"></script>
+</body></html>

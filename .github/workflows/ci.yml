@@ -1,0 +1,27 @@
+name: Verify foundation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.20.2'
+          cache: npm
+      - name: Install elan and pinned Lean
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/v4.1.2/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.28.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run demo
+      - run: node dist/packages/agent-runtime/src/cli.js check artifacts/demo.json
+      - name: Install isolated test browser
+        run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Generated schemas are current
+        run: git diff --exit-code -- schemas/

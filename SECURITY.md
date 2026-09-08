@@ -1,0 +1,17 @@
+# Security and privacy model
+
+This developer preview processes supplied/captured text locally. It has no telemetry, model API, cloud transmission, account system or automatic URL fetching. Do not send security reports containing private browsing text to a public issue. A private reporting contact has not yet been configured for this unreleased repository.
+
+## Boundaries
+
+Untrusted page content and artifact data can propose reasoning objects; neither authorizes tools or code execution. The browser renders text with textContent. Fixed AST-to-Lean templates rename all symbols; only generated source executes. Imported source is evidence to compare, never an executable request. Core schema, hash, quotation, ID and dependency checks precede verification. Source URLs are inert references. Lean execution has a pinned version, clean search paths, private temporary directory, bounded memory, heartbeats, timeout and output, and no shell invocation. This is **not** a general-purpose sandbox for arbitrary Lean; that feature is deliberately unavailable.
+
+The local bridge binds only 127.0.0.1 and checks Host, exact paired extension Origin, bearer token, content type, request size and concurrency. It uses no wildcard CORS or credentialed cookies. A hostile webpage cannot invoke it through an ordinary cross-origin request or forge the paired origin. Local malware, a compromised extension/runtime, another local process with the pairing token, or a replaced Lean binary are outside this threat boundary. OS-level worker isolation is future work.
+
+The browser's optional host permission technically covers loopback HTTP across ports because Chromium host permissions do not restrict ports. Code and CSP use only 4318. Permission persists until revoked in extension settings or uninstall; the pairing token and graph remain transient. No extension storage permission, content scripts, background capture, screenshot API, cookies, history or all-sites access is requested. The service worker only launches the inspector after a toolbar click. Incognito is disabled. Only main-frame rendered text nodes intersecting the viewport/selection are considered. Inputs, editable content, hidden elements and explicitly private marked areas are excluded; other visible sensitive text may still be captured when the user clicks. Inspect the preview before exporting or sending to the local verifier.
+
+## Retention and integrity
+
+Inspector closure/Forget discards in-memory graph and token; switching windows does not. Exports contain the bounded source text and may contain sensitive data. FileStore is opt-in through SDK/MCP and retains immutable snapshots in its selected directory. OS user permissions protect local files; encryption at rest is not implemented. Explicit user deletion of exported files or the entire chosen store is supported; append-only history does not override privacy deletion. Untrusted snapshots are bounded before file allocation, decoded as strict UTF-8 and replay-validated on import/load.
+
+Attribution and evidence assessments are declarations, not authenticated credentials. Hash chains do not prove page authenticity or capture time and need an independently retained head to detect a wholly rewritten chain. Public anchoring/signing, semantic formalization review, empirical corroboration and identity verification are separate future controls. A PROVEN edge never promotes input evidence. Contradictory premises can admit valid conditional deductions and must remain visible to the inspector.

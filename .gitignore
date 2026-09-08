@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.logosphere/
+artifacts/
+releases/
+*.log
+.DS_Store
+coverage/
+.env

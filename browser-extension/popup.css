@@ -1,0 +1,14 @@
+:root { font: 14px/1.5 system-ui,sans-serif; color: #192b32; background: #f5f7f5; }
+body { max-width: 800px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
+h1 { margin: 0; font-size: 26px; } h2 { font-size: 18px; margin-top: 24px; }
+p { margin: 8px 0; } button,input,textarea { font: inherit; }
+button,.file { padding: 8px 12px; border: 1px solid #647d78; border-radius: 5px; background: white; color: #173d35; cursor: pointer; }
+button:disabled { opacity: .5; cursor: default; } button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible { outline: 3px solid #238276; outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+textarea { width: 100%; box-sizing: border-box; padding: 10px; resize: vertical; } label { display: block; font-weight: 600; }
+.hint { color: #52615e; font-size: 12px; } .boundary { padding: 10px; border-left: 3px solid #aa7831; background: #fff8e8; }
+#status { font-weight: 600; } .node,.edge { background: white; padding: 12px; margin: 10px 0; border: 1px solid #c5d1cc; border-radius: 5px; overflow-wrap: anywhere; }
+.edge { border-left: 4px solid #457c70; } .meta { font-size: 12px; color: #52615e; } .assumption { border-color: #bd8735; }
+details { margin: 8px 0; } summary { cursor: pointer; } pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+code { overflow-wrap: anywhere; } input[type=password] { width: 90%; margin: 8px 0; } .file input { display: block; font-size: 12px; }
+a { color: #19695b; } .challenge { color: #8c4233; }

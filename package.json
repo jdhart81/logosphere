@@ -1,0 +1,34 @@
+{
+  "name": "logosphere",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Inspectable reasoning graphs with reproducible, conditional Lean verification",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "tsc && node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "test:browser": "npm run build && node tests/extension.e2e.mjs",
+    "package:extension": "npm run build && node scripts/package.mjs",
+    "demo": "node dist/packages/agent-runtime/src/cli.js demo",
+    "serve": "node dist/packages/agent-runtime/src/server.js",
+    "mcp": "node dist/packages/agent-runtime/src/mcp.js",
+    "check": "npm test && npm run demo"
+  },
+  "dependencies": {
+    "zod": "4.1.5"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.1.12",
+    "@types/jsdom": "21.1.7",
+    "@types/node": "20.19.17",
+    "esbuild": "0.25.9",
+    "jsdom": "26.1.0",
+    "playwright": "1.63.0",
+    "typescript": "5.9.3"
+  }
+}
