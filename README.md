@@ -2,6 +2,10 @@
 
 **Inspectable reasoning graphs with reproducible, conditional Lean verification.**
 
+[**Run the local demo**](#quick-start) ·
+[Make a first contribution](docs/first-contribution.md) ·
+[Share a first-use or repeat-use report](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml)
+
 Information → explicit logic graph → verification → canonical reasoning artifact → human/agent projections.
 
 Logosphere makes the declared reasoning inspectable. Lean checks whether a conclusion follows from specified hypotheses. Source authenticity, premise truth, evidence quality and the interpretation of natural language are separate questions. The system can leave them unresolved.

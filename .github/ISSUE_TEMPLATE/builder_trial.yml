@@ -1,0 +1,58 @@
+name: First-use or repeat-use report
+description: Share a reproducible result or the first obstacle in the local demo.
+title: "[Builder trial]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use a synthetic example. This issue is public: do not attach captured private pages, pairing tokens, local stores or credentials.
+        A Lean result establishes a conditional deduction from stated assumptions, not the truth of the source or its premises.
+  - type: dropdown
+    id: experience
+    attributes:
+      label: Which path did you try?
+      options:
+        - CLI demo
+        - Browser extension
+        - SDK or MCP integration
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Is this your first use?
+      options:
+        - First use
+        - Returned for a different task
+        - Maintainer or automated test
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What argument or integration did you try?
+      description: Give a minimal synthetic input and the command or UI steps. Include Node, Lean, operating system and browser versions when relevant.
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: What happened?
+      options:
+        - Produced a useful inspectable artifact
+        - Partly useful
+        - Blocked before a useful result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What helped, or what was the first obstacle?
+      description: Include expected versus actual behavior and sanitized output. Explain which premise or assumption remained unresolved.
+    validations:
+      required: true
+  - type: textarea
+    id: next
+    attributes:
+      label: What would make you use it again?
+      description: For a repeat visit, describe the new task. No personal contact details needed.
