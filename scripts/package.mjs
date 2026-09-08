@@ -7,7 +7,7 @@ import { join, resolve } from 'node:path';
 const { version } = JSON.parse(await readFile('package.json', 'utf8'));
 const manifest = JSON.parse(await readFile('dist/extension/manifest.json', 'utf8'));
 if (manifest.version !== version) throw new Error('Package and extension versions differ');
-const files = ['LICENSE', 'THIRD_PARTY_NOTICES.txt', 'launcher.js', 'manifest.json', 'popup.css', 'popup.html', 'popup.js', 'popup.js.map'].sort();
+const files = ['LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.txt', 'launcher.js', 'manifest.json', 'popup.css', 'popup.html', 'popup.js', 'popup.js.map'].sort();
 await mkdir('releases', { recursive: true });
 const archive = resolve(`releases/logosphere-${version}-extension.zip`);
 const stage = await mkdtemp(join(tmpdir(), 'logosphere-package-'));

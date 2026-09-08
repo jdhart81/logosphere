@@ -1,6 +1,6 @@
 # Security and privacy model
 
-This developer preview processes supplied/captured text locally. It has no telemetry, model API, cloud transmission, account system or automatic URL fetching. Do not send security reports containing private browsing text to a public issue. A private reporting contact has not yet been configured for this unreleased repository.
+This developer preview processes supplied/captured text locally. It has no telemetry, model API, cloud transmission, account system or automatic URL fetching. Report vulnerabilities through [GitHub private vulnerability reporting](https://github.com/jdhart81/logosphere/security/advisories/new). Use a synthetic reproduction and remove pairing tokens, browsing text and other private data. Ordinary bugs and feature requests can use [public issues](https://github.com/jdhart81/logosphere/issues); security reports should remain private.
 
 ## Boundaries
 

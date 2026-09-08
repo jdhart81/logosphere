@@ -17,7 +17,7 @@ These are enforced through schema validation, replay validation, status projecti
 
 ## Assumptions and open questions
 
-Decisions for M0/M1: Node.js 20+, strict TypeScript, Chromium Manifest V3, pinned Lean 4.28.0 with core library only, no model provider, no account, no hosted service. Use SHA-256 of a specified deterministic JSON encoding, local files for agent persistence, and transient extension memory. Apache-2.0 is the initial license choice. The extraction baseline is deterministic and intentionally limited; arbitrary prose remains unresolved and is editable before accepting a mapping.
+Decisions for M0/M1: Node.js 24 LTS, strict TypeScript, Chromium Manifest V3, pinned Lean 4.28.0 with core library only, no model provider, no account, no hosted service. Use SHA-256 of a specified deterministic JSON encoding, local files for agent persistence, and transient extension memory. Apache-2.0 is the initial license choice. The extraction baseline is deterministic and intentionally limited; arbitrary prose remains unresolved and is editable before accepting a mapping.
 
 Open, deferred decisions: research-grade extraction/model evaluation; identity signing and public timestamp anchoring; source authenticity and evidence quality assessments; ontology and cross-graph semantic alignment; full first-order/mathematical formalization; continuous per-site capture permissions and retention; collaboration and revocation; independent kernel implementations; distribution through browser stores. None blocks the bounded slice. Hash chains detect changes against a known head, but cannot authenticate authors or detect a fully rewritten unanchored history.
 

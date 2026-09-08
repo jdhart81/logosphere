@@ -10,9 +10,11 @@ This repository implements **Milestone 0 (foundation)** and **Milestone 1 (bound
 
 ## Quick start
 
-Requirements: Node.js 20.19 or newer, npm, and [elan](https://github.com/leanprover/elan). Initial dependency/toolchain installation requires internet access; the demo and verifier operate locally afterward. No API keys, model provider, account or database service is required.
+Requirements: Node.js 24.20 or newer (Node 24 LTS recommended; `.nvmrc` pins the tested version), npm, and [elan](https://github.com/leanprover/elan). Initial dependency/toolchain installation requires internet access; the demo and verifier operate locally afterward. No API keys, model provider, account or database service is required.
 
 ```sh
+git clone https://github.com/jdhart81/logosphere.git
+cd logosphere
 npm ci --ignore-scripts
 elan toolchain install leanprover/lean4:v4.28.0
 npm run build

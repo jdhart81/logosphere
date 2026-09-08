@@ -4,7 +4,7 @@ The repository and installation archive are a local developer preview. Packaging
 
 ## Rebuild and verify
 
-Use macOS or Linux with Node.js 20.19+, npm, elan and `zip`:
+Use macOS or Linux with Node.js 24.20+ (Node 24 LTS recommended), npm, elan and `zip`:
 
 ```sh
 npm ci --ignore-scripts

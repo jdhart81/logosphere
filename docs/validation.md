@@ -1,6 +1,6 @@
 # Validation and release status
 
-The local M0/M1 developer preview has passed its invariant suite, real browser integration and native consent/verification flow. No repository has been published, no hosted service deployed, and no browser-store submission made. CI is configured but has not been run on GitHub.
+The M0/M1 developer preview has passed its local invariant suite, real browser integration and native consent/verification flow. Exact GitHub commit checks are available on the [Actions page](https://github.com/jdhart81/logosphere/actions/workflows/ci.yml). Browser-store distribution and hosted services are outside this source release.
 
 ## Local verification receipt — September 8, 2026
 
@@ -17,6 +17,12 @@ The local M0/M1 developer preview has passed its invariant suite, real browser i
 - Cleanup: the test verifier was stopped and its temporary native profile, including the granted permissions, was removed. The ordinary browser profile was not used.
 
 The earlier automatic approval rejection was respected until the user explicitly approved the local permission scope; it is now resolved. The current integration run also fixed the harness's exact-URL lookup: Chromium tab filters accept URL patterns, so the test now matches the observed URL against the tab inventory instead of treating its fragment as a filter pattern. Browser binaries were reused from `/private/tmp/logosphere-browser-cache` via `PLAYWRIGHT_BROWSERS_PATH`; a fresh setup can use the standard install command below. Demo artifacts have fresh UUIDs/timestamps on each run and therefore different heads.
+
+## Open-source publication checks — September 8, 2026
+
+The supported setup now pins Node.js 24.20.0 LTS in `.nvmrc`. A fresh locked install, all 38 invariant/integration tests, the real Lean demo and the isolated Chromium integration passed again on that runtime. The native permission record above used Node 20.20.2 before this runtime update. CI uses the same Node 24 pin and immutable action commit references on Linux. The locked dependency audit reported zero known vulnerabilities; the publication history scan reported no detected secrets. These checks reduce known release risks, but are not claims of exhaustive security assurance.
+
+The repository includes the complete Apache-2.0 license, project attribution and bundled dependency notices. Public source and private vulnerability reporting are distinct from browser-store distribution, hosted deployment or npm publication.
 
 ## Automated checks
 
@@ -55,4 +61,4 @@ Use the unchanged `dist/extension` package in a fresh visible Chromium profile. 
 7. Export, close and reopen to confirm the session is gone. Import to confirm reported proofs stay unverified until reproduced.
 8. Confirm keyboard navigation, long-text wrapping and no network requests except explicit local verification.
 
-Public distribution also needs extension-store review, privacy disclosure review, an owner-configured private security-reporting channel and an explicit publication decision. M2/M3 roadmap items are outside the requested M0/M1 implementation scope.
+A browser-store release would also need store review and its required privacy disclosures. The source repository provides a private security-reporting route in `SECURITY.md`. M2/M3 roadmap items are outside the requested M0/M1 implementation scope.
