@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "tsc && node scripts/build.mjs",
+    "first-use": "npm run build && npm run demo && node dist/packages/agent-runtime/src/cli.js check artifacts/demo.json",
     "typecheck": "tsc --noEmit",
     "test": "npm run build && node --test dist/tests/*.test.js",
     "test:browser": "npm run build && node tests/extension.e2e.mjs",

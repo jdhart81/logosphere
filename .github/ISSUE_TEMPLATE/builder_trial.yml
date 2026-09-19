@@ -51,8 +51,21 @@ body:
       description: Include expected versus actual behavior and sanitized output. Explain which premise or assumption remained unresolved.
     validations:
       required: true
+  - type: input
+    id: artifact_head
+    attributes:
+      label: Artifact head, if one was produced
+      description: Paste only the sha256 head printed by the CLI. Do not attach the artifact when it contains private text.
+      placeholder: "sha256:..."
   - type: textarea
     id: next
     attributes:
       label: What would make you use it again?
       description: For a repeat visit, describe the new task. No personal contact details needed.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-report safety
+      options:
+        - label: I used synthetic or public text and removed credentials, pairing tokens, private captures and local paths from this report.
+          required: true

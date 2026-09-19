@@ -1,9 +1,15 @@
 # Try one argument, improve one step
 
-Start with the [README quickstart](../README.md#quick-start). Use the synthetic
-reservoir example before connecting a browser. The demo should produce a
-conditional deduction while keeping the sensor premise unresolved. See the
-[validation record](validation.md) for the tested scope.
+Start with the [README first-use flow](../README.md#first-successful-proof):
+
+```sh
+npm run first-use
+```
+
+Use the synthetic reservoir example before connecting a browser. The command
+builds the project, produces a conditional deduction while keeping the sensor
+premise unresolved, and independently reproduces the exported Lean receipt.
+See the [validation record](validation.md) for the tested scope.
 
 Then choose one small contribution:
 
@@ -15,7 +21,8 @@ Then choose one small contribution:
 - **A confusing provenance display:** describe which assumption or source you
   could not trace and provide reproduction steps with synthetic input.
 
-[Report your first or repeat use](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml).
+[Report your first or repeat use](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml),
+whether the command succeeded, failed, or left the result unclear.
 You do not need to implement a feature to contribute. A reproducible obstacle is
 useful. Before writing code, check existing issues and follow
 [CONTRIBUTING.md](../CONTRIBUTING.md), including the real Lean checks.

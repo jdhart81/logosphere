@@ -2,7 +2,7 @@
 
 **Inspectable reasoning graphs with reproducible, conditional Lean verification.**
 
-[**Run the local demo**](#quick-start) ·
+[**Run the local demo**](#first-successful-proof) ·
 [Make a first contribution](docs/first-contribution.md) ·
 [Share a first-use or repeat-use report](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml)
 
@@ -12,7 +12,7 @@ Logosphere makes the declared reasoning inspectable. Lean checks whether a concl
 
 This repository implements **Milestone 0 (foundation)** and **Milestone 1 (bounded developer preview)**. It includes a Chromium extension, a local Lean verifier, a TypeScript SDK, a CLI, MCP stdio, hash-linked graph history and portable JSON artifacts. The invariant suite, real browser integration, native permission flow and independent Lean reproduction have passed locally. It does not provide general-purpose argument understanding or continuous browsing observation yet. See the [acceptance matrix](docs/acceptance.md) and [validation record](docs/validation.md) for the exact tested scope.
 
-## Quick start
+## First successful proof
 
 Requirements: Node.js 24.20 or newer (Node 24 LTS recommended; `.nvmrc` pins the tested version), npm, and [elan](https://github.com/leanprover/elan). Initial dependency/toolchain installation requires internet access; the demo and verifier operate locally afterward. No API keys, model provider, account or database service is required.
 
@@ -21,12 +21,12 @@ git clone https://github.com/jdhart81/logosphere.git
 cd logosphere
 npm ci --ignore-scripts
 elan toolchain install leanprover/lean4:v4.28.0
-npm run build
-npm test
-npm run demo
+npm run first-use
 ```
 
-Tests require permission to open a temporary loopback port and execute Lean. They fail if the real Lean integration is unavailable; there is no simulated proof fallback. esbuild's platform executable is installed as a locked optional package; lifecycle scripts are not needed on supported macOS/Linux platforms.
+`first-use` builds the project, runs the synthetic argument through the real Lean verifier, exports the canonical artifact, and independently reproduces its proof receipt. It does not send text or telemetry anywhere. There is no simulated proof fallback.
+
+For the full contributor verification suite, run `npm test` after the first-use flow. Tests require permission to open a temporary loopback port and execute Lean. esbuild's platform executable is installed as a locked optional package; lifecycle scripts are not needed on supported macOS/Linux platforms.
 
 The demo writes `artifacts/demo.json` and `artifacts/Proof.lean`, then reproduces the proof in a fresh Lean process. Its synthetic example is:
 
@@ -45,6 +45,8 @@ node dist/packages/agent-runtime/src/cli.js inspect artifacts/my-argument.json
 ```
 
 `--accept-formalization` records review of the proposed symbolic interpretation. Omit it to preserve candidate mappings as proposed and leave verification unestablished. Inspect the mappings before accepting them. The demo accepts its predeclared synthetic mapping explicitly.
+
+If the first-use flow succeeds, fails, or leaves you unsure what was established, [share a sanitized builder-trial report](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml). A reproducible first obstacle is useful; successful execution is not the same as a useful result, so the report asks about both.
 
 ## Try the browser extension
 
@@ -119,6 +121,6 @@ The extractor recognizes explicit conditional/matching-premise/conclusion patter
 
 COMPARE reports exact object differences, including evidence and challenges; it does not compute a semantically minimal divergence set. Continuous observation, screenshot capture, model-backed extraction, signing, collaborative accounts, rich semantic alignment, public hosting and browser-store release are later milestones.
 
-[Architecture, invariants and roadmap](docs/architecture.md) · [Protocol](docs/protocol.md) · [Security and retention](SECURITY.md) · [Validation and release checklist](docs/validation.md) · [Contributing](CONTRIBUTING.md)
+[Architecture, invariants and roadmap](docs/architecture.md) · [Protocol](docs/protocol.md) · [Security and retention](SECURITY.md) · [Validation and release checklist](docs/validation.md) · [Draft v0.1.0 release notes](docs/release-notes-v0.1.0.md) · [Contributing](CONTRIBUTING.md)
 
 Apache-2.0. See [LICENSE](LICENSE).
