@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "Logosphere"
+type: software
+authors:
+  - family-names: Hart
+    given-names: "Justin D."
+    affiliation: "Viridis LLC, Columbia Falls, Montana, USA"
+    orcid: "https://orcid.org/0009-0008-3082-2482"
+repository-code: "https://github.com/jdhart81/logosphere"
+abstract: "Local-first reasoning graphs with provenance, explicit assumptions and reproducible conditional Lean 4 verification."
+license: Apache-2.0
+version: "0.1.0"
+keywords:
+  - "reasoning graphs"
+  - "formal verification"
+  - "Lean 4"
+  - "local-first"
+  - "MCP"
+  - "provenance"

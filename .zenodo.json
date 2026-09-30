@@ -1,0 +1,22 @@
+{
+  "title": "Logosphere",
+  "upload_type": "software",
+  "description": "Local-first reasoning graphs with provenance, explicit assumptions and reproducible conditional Lean 4 verification.",
+  "creators": [
+    {
+      "name": "Hart, Justin D.",
+      "affiliation": "Viridis LLC",
+      "orcid": "0009-0008-3082-2482"
+    }
+  ],
+  "license": "apache-2.0",
+  "keywords": [
+    "reasoning graphs",
+    "formal verification",
+    "Lean 4",
+    "local-first",
+    "MCP",
+    "provenance"
+  ],
+  "access_right": "open"
+}
