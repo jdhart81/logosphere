@@ -1,5 +1,7 @@
 # Logosphere
 
+[![CI](https://github.com/jdhart81/logosphere/actions/workflows/ci.yml/badge.svg)](https://github.com/jdhart81/logosphere/actions/workflows/ci.yml) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/jdhart81/logosphere/badge)](https://scorecard.dev/viewer/?uri=github.com/jdhart81/logosphere)
+
 **Inspectable reasoning graphs with reproducible, conditional Lean verification.**
 
 [**Run the local demo**](#first-successful-proof) ·
