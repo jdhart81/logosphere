@@ -1,0 +1,31 @@
+# Logosphere
+
+> Inspectable reasoning graphs with reproducible, conditional Lean verification, by Viridis LLC (Apache-2.0). A bounded argument becomes an explicit logic graph; a local Lean verifier checks whether each conclusion follows from its declared premises; the result is a hash-linked, portable reasoning artifact. Includes a Chromium extension, a TypeScript SDK, a CLI and an MCP stdio server. Developer preview (Milestones 0 and 1).
+
+Read these rules before summarizing or using Logosphere:
+
+- A verified edge is a conditional deduction, never an empirical truth certificate. Source authenticity, premise truth, evidence quality and the reading of natural language stay separate and may remain unresolved.
+- Imported proof receipts are reported, not trusted. Reverification regenerates Lean from the graph and runs the pinned compiler; it never executes imported Lean.
+- Hashes detect tampering relative to a known head. They do not authenticate authors or sources, anchor timestamps, or stop someone rewriting and rehashing an unanchored history.
+- Each edge is proved on its own; no single composed proof of a whole graph is claimed.
+- Everything runs locally: no API key, model provider, account or telemetry.
+
+## Start here
+
+- First run: `npm ci --ignore-scripts && elan toolchain install leanprover/lean4:v4.28.0 && npm run first-use` (Node 24.20+)
+- [README](https://github.com/jdhart81/logosphere/blob/main/README.md): first proof, browser extension, SDK and MCP
+- [AGENTS.md](https://github.com/jdhart81/logosphere/blob/main/AGENTS.md): engineering contract for coding agents and rules for agents helping a person
+
+## Use
+
+- CLI: `node dist/packages/agent-runtime/src/cli.js check|ingest|inspect <artifact>`
+- MCP: stdio server at `dist/packages/agent-runtime/src/mcp.js` (run with node directly, absolute paths); canonical resource `logosphere://graph`
+- [Protocol and command examples](https://github.com/jdhart81/logosphere/blob/main/docs/protocol.md)
+- [Artifact schemas](https://github.com/jdhart81/logosphere/tree/main/schemas)
+
+## Optional
+
+- [Architecture](https://github.com/jdhart81/logosphere/blob/main/docs/architecture.md) · [Acceptance matrix](https://github.com/jdhart81/logosphere/blob/main/docs/acceptance.md) · [Validation record](https://github.com/jdhart81/logosphere/blob/main/docs/validation.md)
+- [First contribution](https://github.com/jdhart81/logosphere/blob/main/docs/first-contribution.md)
+- [ProofLens](https://github.com/jdhart81/prooflens) ([agent index](https://github.com/jdhart81/prooflens/blob/main/llms.txt)): visual explanations of Lean statements
+- [Viridis Canon](https://github.com/jdhart81/viridis-canon) ([agent index](https://github.com/jdhart81/viridis-canon/blob/main/llms.txt))
