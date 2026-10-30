@@ -6,7 +6,8 @@
 
 [**Run the local demo**](#first-successful-proof) ·
 [Make a first contribution](docs/first-contribution.md) ·
-[Share a first-use or repeat-use report](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml)
+[Share a first-use or repeat-use report](https://github.com/jdhart81/logosphere/issues/new?template=builder_trial.yml) ·
+[Agent index](llms.txt)
 
 Information → explicit logic graph → verification → canonical reasoning artifact → human/agent projections.
 
